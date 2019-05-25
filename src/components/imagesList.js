@@ -3,19 +3,36 @@ import { connect } from 'react-redux';
 import mapStateToProps from '../components/Modules/mapReduxStateToProps';
 
 class ImagesList extends Component {
-    componentDidMount(){
+    state = {
+        currentImage: 0,
+    }
+
+    componentDidMount() {
         this.props.dispatch({
             type: 'GET_IMAGES',
         });
     }
 
-    render(){
-        const imageList = this.props.reduxState.images.map((imageData, imageIndex)=>{
-            return <img key={imageIndex} src={imageData.path} alt={imageData.title} />
+    changeImage = (event) => {
+        this.setState({
+            currentImage: this.state.currentImage + 1,
         })
-        return(
+        if (this.state.currentImage > this.props.reduxState.images.length) {
+            this.setState({
+                currentImage: 0
+            })
+        }
+    }
+
+    render() {
+        const currentImageIndex = this.state.currentImage;
+        const currentImage = this.props.reduxState.images[this.currentImageIndex];
+        const renderElement = <img key={currentImageIndex} src={currentImage.path} alt={currentImage.title}/>
+
+        return (
             <div>
-                {imageList}
+                {renderElement}
+                <button onClick={this.changeImage}>Next</button>
             </div>
         )
     }
