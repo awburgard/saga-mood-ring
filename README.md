@@ -47,7 +47,7 @@ Feel free to make up your own. You may need others beyond these:
 
 - [x] GET `/api/tags` -- Should return all tags
 - [x] GET `/api/images` -- Should return all images and the tags associated with each image (JOIN!)
-- [ ] POST `/api/images/addtag` -- Should add a tag associated with an image to your junction table.
+- [x] POST `/api/images/addtag` -- Should add a tag associated with an image to your junction table.
 
 
 ## Front-End
