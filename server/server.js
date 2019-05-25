@@ -12,7 +12,7 @@ app.use(express.static('build'));
 
 /** ---------- ROUTES ---------- **/
 app.use('/tags', tags);
-app.use('/images', images);
+app.use('/image', images);
 app.use('/images/tags', imageTags)
 
 /** ---------- START SERVER ---------- **/

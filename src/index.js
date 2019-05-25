@@ -14,7 +14,7 @@ import axios from 'axios'
 
 function* getImages() {
     try {
-        const imageResponse = yield axios.get('/images');
+        const imageResponse = yield axios.get('/image');
         yield put({
             type: 'SET_IMAGES',
             payload: imageResponse.data
