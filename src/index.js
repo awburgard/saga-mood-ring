@@ -9,9 +9,37 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
+import { takeEvery, put} from '@redux-saga/core/effects';
+import axios from 'axios'
+
+function* getImages() {
+    try {
+        const imageResponse = yield axios.get('/images');
+        yield put({
+            type: 'SET_IMAGES',
+            payload: imageResponse.data
+        })
+    } catch (err) {
+        console.log('error HELP:', err);
+    }
+}
+
+function* getTags() {
+    try {
+        const tagResponse = yield axios.get('/tags');
+        yield put({
+            type: 'SET_TAGS',
+            payload: tagResponse.data
+        })
+    } catch (err) {
+        console.log('error HELP:', err);
+    }
+}
 
 // Create the rootSaga generator function
 function* rootSaga() {
+    yield takeEvery('GET_IMAGES', getImages)
+    yield takeEvery('GET_TAGS', getTags)
 
 }
 
@@ -51,6 +79,6 @@ const storeInstance = createStore(
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
 
-ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, 
+ReactDOM.render(<Provider store={storeInstance}><App /></Provider>,
     document.getElementById('root'));
 registerServiceWorker();
