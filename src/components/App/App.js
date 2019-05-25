@@ -35,10 +35,18 @@ class App extends Component {
 
     })
 
+    const tagMarkUp = this.props.reduxState.tags.map((tagData, tagIndex)=>{
+      return <div key={tagIndex}>
+        <p>{tagData.name}</p>
+
+      </div>
+    })
+
     return (
       <div className="App">
         <p>Hello</p>
         {imageMarkup}
+        {tagMarkUp}
       </div>
     );
   }
