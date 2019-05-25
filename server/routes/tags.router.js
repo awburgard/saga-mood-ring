@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require('../modules/pool')
 
 router.get('/', (req, res) => {
-    const queryString = `SELECT * FROM "images";`;
+    const queryString = `SELECT * FROM "tags";`;
 
     pool.query(queryString)
         .then((response) => {
@@ -35,7 +35,5 @@ router.put('/', (req,res) => {
 router.delete('/', (req,res) => {
 
 });
-
-module.exports = router;
 
 module.exports = router;
