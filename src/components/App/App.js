@@ -8,6 +8,7 @@ class App extends Component {
   componentDidMount() {
     this.getTags();
     this.getImages();
+    this.getImageTags();
   }
 
   getTags() {
@@ -22,10 +23,22 @@ class App extends Component {
     })
   }
 
+  getImageTags() {
+    this.props.dispatch({
+      type: 'GET_IMAGE_TAGS'
+    })
+  }
+
   render() {
+    const imageMarkup = this.props.reduxState.images.map((imgData, imgIndex) => {
+      return <img key={imgIndex} src={imgData.path} alt={imgData.title}/>
+
+    })
+
     return (
       <div className="App">
-        <p>Empty Page</p>
+        <p>Hello</p>
+        {imageMarkup}
       </div>
     );
   }

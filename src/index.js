@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
-import { takeEvery, put} from '@redux-saga/core/effects';
+import { takeEvery, put } from '@redux-saga/core/effects';
 import axios from 'axios'
 
 function* getImages() {
@@ -18,7 +18,7 @@ function* getImages() {
         yield put({
             type: 'SET_IMAGES',
             payload: imageResponse.data
-        })
+        });
     } catch (err) {
         console.log('error HELP:', err);
     }
@@ -36,10 +36,23 @@ function* getTags() {
     }
 }
 
+function* getImageTags() {
+    try {
+        const imageTagResponse = yield axios.get('/images/tags/all');
+        yield put({
+            type: 'SET_IMAGE_TAGS',
+            payload: imageTagResponse.data
+        })
+    } catch (err) {
+        console.log('error HELP:', err)
+    }
+};
+
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('GET_IMAGES', getImages)
     yield takeEvery('GET_TAGS', getTags)
+    yield takeEvery('GET_IMAGE_TAGS', getImageTags)
 
 }
 
@@ -66,11 +79,21 @@ const tags = (state = [], action) => {
     }
 }
 
+const imageTags = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_IMAGE_TAGS':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         images,
         tags,
+        imageTags,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
