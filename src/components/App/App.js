@@ -7,6 +7,7 @@ class App extends Component {
   // Renders the entire app on the DOM
   componentDidMount() {
     this.getTags();
+    this.getImages();
   }
 
   getTags() {
@@ -14,6 +15,13 @@ class App extends Component {
       type: 'GET_TAGS'
     })
   }
+
+  getImages() {
+    this.props.dispatch({
+      type: 'GET_IMAGES'
+    })
+  }
+
   render() {
     return (
       <div className="App">
