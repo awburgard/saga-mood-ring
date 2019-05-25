@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
         })
 });
 
-router.post('/', (req,res) => {
+router.post('/', (req, res) => {
     const queryString = `INSERT INTO "tags" ("name")
                             VALUES ($1);`;
 
@@ -28,11 +28,11 @@ router.post('/', (req,res) => {
         })
 });
 
-router.put('/', (req,res) => {
+router.put('/', (req, res) => {
 
 });
 
-router.delete('/', (req,res) => {
+router.delete('/', (req, res) => {
 
 });
 

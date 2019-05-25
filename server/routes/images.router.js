@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-router.get('/', (req,res) => {
+router.get('/', (req, res) => {
     const queryString = `SELECT * FROM "images";`;
 
     pool.query(queryString)
@@ -14,7 +14,7 @@ router.get('/', (req,res) => {
         })
 });
 
-router.post('/', (req,res) => {
+router.post('/', (req, res) => {
     const queryString = `INSERT INTO "images" ("title", "path")
                             VALUES ($1, $2);`;
 
@@ -28,12 +28,12 @@ router.post('/', (req,res) => {
         })
 });
 
-router.put('/', (req,res) => {
+router.put('/', (req, res) => {
 
 });
 
-router.delete('/', (req,res) => {
-    
+router.delete('/', (req, res) => {
+
 });
 
 module.exports = router;
