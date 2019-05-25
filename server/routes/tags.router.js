@@ -1,17 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../modules/pool');
+const pool = require('../modules/pool')
 
-router.get('/', (req, res)=>{
-    const queryString = `SELECT * "images";`;
+router.get('/', (req, res) => {
+    const queryString = `SELECT * FROM "images";`;
 
     pool.query(queryString)
-    .then((response)=>{
-        res.send(response.rows);
-    })
-    .catch((err)=>{
-        res.sendStatus(500);
-    })
+        .then((response) => {
+            res.send(response.rows);
+        })
+        .catch((err) => {
+            res.sendStatus(500);
+        })
 });
 
 module.exports = router;
