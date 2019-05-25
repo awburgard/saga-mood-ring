@@ -46,7 +46,7 @@ We've given you some starter tags in the database. Feel free to change or add so
 Feel free to make up your own. You may need others beyond these:
 
 - [x] GET `/api/tags` -- Should return all tags
-- [ ] GET `/api/images` -- Should return all images and the tags associated with each image (JOIN!)
+- [x] GET `/api/images` -- Should return all images and the tags associated with each image (JOIN!)
 - [ ] POST `/api/images/addtag` -- Should add a tag associated with an image to your junction table.
 
 
