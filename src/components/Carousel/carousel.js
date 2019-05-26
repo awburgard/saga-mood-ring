@@ -44,8 +44,8 @@ class Carousel extends Component {
 
         return (
             <div>
-                {renderElement}
                 <button onClick={this.changeImageBack}>Back</button>
+                {renderElement}
                 <button onClick={this.changeImageNext}>Next</button>
             </div>
         )

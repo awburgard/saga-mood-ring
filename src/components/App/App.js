@@ -4,6 +4,7 @@ import mapReduxStateToProps from '../../Modules/mapReduxStateToProps'
 import './App.css';
 import Carousel from '../Carousel/carousel';
 import TagList from '../TagList/taglist';
+import JointTable from '../JointTable/jointtable'
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
       <div className="App">
         <Carousel />
         <TagList/>
+        <JointTable />
       </div>
     );
   }
