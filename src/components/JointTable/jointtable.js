@@ -10,12 +10,20 @@ class JointTable extends Component {
     }
 
     render() {
+        const imageTags = this.props.reduxState.imageTags.map((data, index) => {
+            return (
+                <div key={index}>
+                    <h1>Tags</h1>
+                    <p>{data}</p>
+                </div>
+            )
+        })
         return (
             <div>
-                CONTENT
+                {imageTags}
             </div>
         )
     }
 
 }
-export default connect (mapReduxStateToProps)(JointTable);
+export default connect(mapReduxStateToProps)(JointTable);
