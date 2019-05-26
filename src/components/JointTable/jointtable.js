@@ -10,16 +10,17 @@ class JointTable extends Component {
     }
 
     render() {
+        console.log(this.props.reduxState.imageTags)
         const imageTags = this.props.reduxState.imageTags.map((data, index) => {
             return (
                 <div key={index}>
-                    <h1>Tags</h1>
-                    <p>{data}</p>
+                    <p>{data.name}</p>
                 </div>
             )
         })
         return (
             <div>
+                <h1>Tags</h1>
                 {imageTags}
             </div>
         )
