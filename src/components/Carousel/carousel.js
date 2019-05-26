@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import mapReduxStateToProps from '../Modules/mapReduxStateToProps'
+import mapReduxStateToProps from '../../Modules/mapReduxStateToProps'
 
 class Carousel extends Component {
 
@@ -8,8 +8,6 @@ class Carousel extends Component {
         this.props.dispatch({
             type: 'GET_IMAGES',
         });
-
-        console.log(this.state);
     }
 
     changeImageNext = (event) => {
@@ -38,7 +36,6 @@ class Carousel extends Component {
 
 
     render() {
-        console.log(this.state);
         let renderElement = <div></div>;
         if (this.props.reduxState.images.length > 0) {
             const currentImage = this.props.reduxState.images[this.props.reduxState.currentImage];
