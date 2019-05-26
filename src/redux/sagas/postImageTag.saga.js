@@ -5,7 +5,7 @@ function* postImageTag(action) {
     try {
         const tagResponse = yield axios.post('/images/tags/add', action.payload);
         yield put({
-            type: 'SET_IMAGE_TAGS',
+            type: 'GET_IMAGE_TAGS',
             payload: tagResponse.data
         })
     } catch (err) {

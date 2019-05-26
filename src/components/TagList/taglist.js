@@ -35,6 +35,7 @@ class TagList extends Component {
 
         return (
             <div>
+                <h3>Tags to Add</h3>
                 {tagElement}
                 {this.props.reduxState.imageTags.tag_id}
             </div>
