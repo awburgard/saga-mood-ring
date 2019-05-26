@@ -13,7 +13,7 @@ class ImagesList extends Component {
         });
     }
 
-    changeImage = (event) => {
+    changeImageNext = (event) => {
         if (this.state.currentImage + 1 > this.props.reduxState.images.length - 1) {
             this.setState({
                 currentImage: 0
@@ -23,22 +23,41 @@ class ImagesList extends Component {
                 currentImage: this.state.currentImage + 1,
             });
         }
-}
+    }
+
+    changeImageBack = (event) => {
+        if (this.state.currentImage -1 < 0) {
+            this.setState({
+                currentImage: this.props.reduxState.images.length - 1
+            });
+        } else {
+            this.setState({
+                currentImage: this.state.currentImage - 1,
+            });
+        }
+    }
 
     render() {
         let renderElement = <div></div>;
-        if (this.props.reduxState.images.length > 0) {
+        if(this.props.reduxState.images.length > 0) {
             const currentImage = this.props.reduxState.images[this.state.currentImage];
-            renderElement = <img src={currentImage.path} alt={currentImage.title} />
+            renderElement = <img src={currentImage.path} alt={currentImage.title}/>
         }
 
         return (
             <div>
                 {renderElement}
-                <button onClick={this.changeImage}>Next</button>
+                <button onClick={this.changeImageBack}>Back</button>
+                <button onClick={this.changeImageNext}>Next</button>
             </div>
         )
     }
 }
 
 export default connect(mapStateToProps)(ImagesList);
+
+// else {
+//     this.setState({
+//         currentImage: this.state.currentImage + 1,
+//     });
+// }
