@@ -14,20 +14,23 @@ class ImagesList extends Component {
     }
 
     changeImage = (event) => {
-        this.setState({
-            currentImage: this.state.currentImage + 1,
-        })
-        if (this.state.currentImage > this.props.reduxState.images.length) {
+        if (this.state.currentImage + 1 > this.props.reduxState.images.length - 1) {
             this.setState({
                 currentImage: 0
-            })
+            });
+        } else {
+            this.setState({
+                currentImage: this.state.currentImage + 1,
+            });
         }
-    }
+}
 
     render() {
-        const currentImageIndex = this.state.currentImage;
-        const currentImage = this.props.reduxState.images[this.currentImageIndex];
-        const renderElement = <img key={currentImageIndex} src={currentImage.path} alt={currentImage.title}/>
+        let renderElement = <div></div>;
+        if (this.props.reduxState.images.length > 0) {
+            const currentImage = this.props.reduxState.images[this.state.currentImage];
+            renderElement = <img src={currentImage.path} alt={currentImage.title} />
+        }
 
         return (
             <div>
