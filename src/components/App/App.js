@@ -13,7 +13,6 @@ class App extends Component {
       <div className="App">
         <Carousel />
         <TagList/>
-        <JointTable />
       </div>
     );
   }
