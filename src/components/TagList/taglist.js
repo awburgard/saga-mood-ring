@@ -8,16 +8,17 @@ class TagList extends Component {
         this.props.dispatch({
             type: 'GET_TAGS'
         })
-        this.props.dispatch({
-            type: 'GET_IMAGE_TAGS'
-        })
+        // this.props.dispatch({
+        //     type: 'GET_IMAGE_TAGS'
+        // })
     }
 
     clickTag = (event) => {
-        const imageId = this.props.reduxState.currentImage + 1;
+        const currImageIndex = this.props.reduxState.currentImage;
+        const currentImageId = this.props.reduxState.images[currImageIndex].id;
         const payload = {
-            imageId : imageId,
-            tagId : event.target.dataset.id,
+            imageId: currentImageId,
+            tagId: event.target.dataset.id,
         }
         this.props.dispatch({
             type: 'ADD_IMAGE_TAG',
@@ -27,7 +28,7 @@ class TagList extends Component {
 
     render() {
         const tagElement = this.props.reduxState.tags.map((tagData, tagIndex) => {
-            return ( <div key={tagIndex} onClick={this.clickTag} data-id={tagData.id}>
+            return (<div key={tagIndex} onClick={this.clickTag} data-id={tagData.id}>
                 {tagData.name}
             </div>
             )

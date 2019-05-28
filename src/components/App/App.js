@@ -4,13 +4,14 @@ import mapReduxStateToProps from '../../Modules/mapReduxStateToProps'
 import './App.css';
 import Carousel from '../Carousel/carousel';
 import TagList from '../TagList/taglist';
-import JointTable from '../JointTable/jointtable'
+import JointTable from '../JointTable/jointtable';
 
 class App extends Component {
   render() {
 
     return (
       <div className="App">
+        <h1>Mood Ring</h1>
         <Carousel />
         <TagList/>
         <JointTable />
