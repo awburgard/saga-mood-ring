@@ -1,6 +1,9 @@
 # Mood Ring Carousel
 
 ## Description
+
+_Duration: 2 Days_
+
 Mood Ring Carousel is an assignment that allows users to attach tags to different images. The user can cycle through the images and add as many tags as they want
 
 ## Installation
