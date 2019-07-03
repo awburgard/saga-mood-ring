@@ -15,11 +15,9 @@ Mood Ring Carousel is an assignment that allows users to attach tags to differen
 6. The `npm run client` command will open up a new browser tab for you!
 
 ## Reflection of Learning
-When did this project occur?
-   - This project occurred during our 6th week of the classroom.
+This project occurred during our 6th week of the classroom.
 
-What did you learn from the project? Technology? Pattern?
-   - This assignment handled using Redux-Saga to run axios operations. I learned how important it is to extrapolate the axios calls to Redux-Saga instead of having backend logic in the frontend files. This extrapolation plays an important part in properly understanding MVC.
+This assignment handled using Redux-Saga to run Axios requests. I learned how important it is to abstract the API calls to Redux-Saga instead of having business logic mixed into the view components. This abstraction plays an important part in understanding the Model, View, Controller (MVC) paradigm.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
